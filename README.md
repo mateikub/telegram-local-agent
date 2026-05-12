@@ -6,10 +6,11 @@ Small Telegram assistant that uses a local OpenAI-compatible LLM endpoint and st
 
 1. Create a Telegram bot with `@BotFather` and copy the token.
 2. Start LM Studio or another OpenAI-compatible local server at `http://127.0.0.1:1234`.
-3. Install dependencies:
+3. Clone this repository and install dependencies:
 
 ```bash
-cd /Users/matuk/PyCharmMiscProject/telegram_local_agent
+git clone https://github.com/mateikub/telegram-local-agent.git
+cd telegram-local-agent
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -26,6 +27,18 @@ Edit `.env` and set `TELEGRAM_BOT_TOKEN`.
 Optional but recommended: set `ALLOWED_TELEGRAM_USER_ID` to your Telegram numeric user id so only you can use the bot.
 
 To answer photo messages, use a local model that supports vision. Set `LLM_VISION_MODEL` if it is different from `LLM_MODEL`.
+
+Example `.env` values:
+
+```env
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+ALLOWED_TELEGRAM_USER_ID=
+LLM_BASE_URL=http://127.0.0.1:1234
+LLM_MODEL=your_text_model
+LLM_VISION_MODEL=your_vision_model
+DATABASE_PATH=data/agent.sqlite3
+TIMEZONE=Europe/Bucharest
+```
 
 ## Run
 
